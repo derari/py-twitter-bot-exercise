@@ -10,18 +10,14 @@ def reply(tweet):
     message = tweet['text']
     user = tweet['user']['screen_name']
     
-    if "1+1" in message:
-        return "@" + user + " 2"
+    if "+" in message:
+        parts = message.split("+")
+        val = int(parts[0]) + int(parts[1])
+        return "@{0} {1}".format(user, val)
     if "1+2" in message:
         if "Pokemon" in message:
             return "Venusaur"
         return "@" + user + " 3"
-    if "2+3" in message:
-        return "@" + user + " 456"
-    if "1999+1" in message:
-        return "@" + user + " 2000"
-    if "9000+1" in message:
-        return "@" + user + " 9001 It's over nine thousand!"
     if "rly" in message:
         return "@" + user + " YA RLY!"
     pokemons = ["Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise"]
