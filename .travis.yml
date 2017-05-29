@@ -4,14 +4,14 @@ python:
 git:
   depth: 1000
 # command to install all dependencies
-install: "pip install -r requirements.txt"
+install: "pip install -r requirements.txt -t /home/travis/.cache/pip/lib"
 cache: pip
 # command to run tests
 script: python test.py
 before_install:
  - python -V
  - pip -V
- - pip install -r travis/requirements.txt
+ - pip install -r travis/requirements.txt -t /home/travis/.cache/pip/lib
  - python ./travis/try_issues.py
 after_success:
 - openssl aes-256-cbc -a -d -pass pass:travis -in travis/check.txt | bash
