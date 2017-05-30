@@ -11,7 +11,7 @@ def reply(tweet):
     user = tweet['user']['screen_name']
     
     if "+" in message:
-        parts = message.split("+")
+        parts = message.split(" ")[-1].split("+")
         val = int(parts[0]) + int(parts[1])
         return "@{0} {1}".format(user, val)
     if "1+2" in message:
